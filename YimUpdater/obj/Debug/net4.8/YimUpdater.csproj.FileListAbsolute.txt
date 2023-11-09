@@ -1,0 +1,10 @@
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net4.8\YimUpdater.csproj.AssemblyReference.cache
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net4.8\YimUpdater.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net4.8\YimUpdater.AssemblyInfoInputs.cache
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net4.8\YimUpdater.AssemblyInfo.cs
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net4.8\YimUpdater.csproj.CoreCompileInputs.cache
+C:\Users\Acer Cloudbook 14\Desktop\Sex\GTA5\Yimupdater\Debug\net4.8\YimUpdater.exe.config
+C:\Users\Acer Cloudbook 14\Desktop\Sex\GTA5\Yimupdater\Debug\net4.8\YimUpdater.exe
+C:\Users\Acer Cloudbook 14\Desktop\Sex\GTA5\Yimupdater\Debug\net4.8\YimUpdater.pdb
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net4.8\YimUpdater.exe
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net4.8\YimUpdater.pdb

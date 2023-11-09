@@ -1,0 +1,10 @@
+C:\Users\Acer Cloudbook 14\Desktop\Sex\GTA5\Yimupdater\Release\net481\YimUpdater.exe.config
+C:\Users\Acer Cloudbook 14\Desktop\Sex\GTA5\Yimupdater\Release\net481\YimUpdater.exe
+C:\Users\Acer Cloudbook 14\Desktop\Sex\GTA5\Yimupdater\Release\net481\YimUpdater.pdb
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Release\net481\YimUpdater.csproj.AssemblyReference.cache
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Release\net481\YimUpdater.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Release\net481\YimUpdater.AssemblyInfoInputs.cache
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Release\net481\YimUpdater.AssemblyInfo.cs
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Release\net481\YimUpdater.csproj.CoreCompileInputs.cache
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Release\net481\YimUpdater.exe
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Release\net481\YimUpdater.pdb

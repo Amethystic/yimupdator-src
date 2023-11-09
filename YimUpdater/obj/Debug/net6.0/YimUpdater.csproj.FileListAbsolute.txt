@@ -1,0 +1,14 @@
+C:\Users\Acer Cloudbook 14\Desktop\Sex\GTA5\Yimupdater\Debug\net6.0\YimUpdater.exe
+C:\Users\Acer Cloudbook 14\Desktop\Sex\GTA5\Yimupdater\Debug\net6.0\YimUpdater.deps.json
+C:\Users\Acer Cloudbook 14\Desktop\Sex\GTA5\Yimupdater\Debug\net6.0\YimUpdater.runtimeconfig.json
+C:\Users\Acer Cloudbook 14\Desktop\Sex\GTA5\Yimupdater\Debug\net6.0\YimUpdater.dll
+C:\Users\Acer Cloudbook 14\Desktop\Sex\GTA5\Yimupdater\Debug\net6.0\YimUpdater.pdb
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net6.0\YimUpdater.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net6.0\YimUpdater.AssemblyInfoInputs.cache
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net6.0\YimUpdater.AssemblyInfo.cs
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net6.0\YimUpdater.csproj.CoreCompileInputs.cache
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net6.0\YimUpdater.dll
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net6.0\refint\YimUpdater.dll
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net6.0\YimUpdater.pdb
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net6.0\YimUpdater.genruntimeconfig.cache
+D:\Documents\CODE\Ours\OTHERS\GTA\YimUpdater\obj\Debug\net6.0\ref\YimUpdater.dll
