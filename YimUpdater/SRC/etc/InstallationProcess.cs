@@ -36,47 +36,16 @@ namespace YimUpdater.SRC.etc
                 {
                     Console.WriteLine("Directory is existing already");
                     Task.Delay(2000).Wait();
-                    Install_Requirements();
                 }
                 else
                 {
                     Directory.CreateDirectory(folderPath);
-                    Install_Requirements();
                 }
+                Install_Requirements();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
-            }
-        }
-        static void Download()
-        {
-            ManualResetEvent downloadCompleted = new ManualResetEvent(false);
-            bool fin = false;
-
-            using (WebClient webClient = new WebClient())
-            {
-                webClient.DownloadFileCompleted += (sender, e) =>
-                {
-                    if (e.Error == null)
-                    {
-                        Console.WriteLine("File downloaded successfully.");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Download failed: {e.Error.Message}");
-                    }
-                    downloadCompleted.Set();
-                    fin = true;
-                };
-
-                webClient.DownloadFileAsync(new Uri("https://github.com/YimMenu/YimMenu/releases/download/nightly/YimMenu.dll"), DLLPath);
-                downloadCompleted.WaitOne();
-            }
-
-            if (!fin)
-            {
-                Launch();
             }
         }
         static void Install_Requirements()
@@ -85,23 +54,76 @@ namespace YimUpdater.SRC.etc
 
             if (File.Exists(DLLPath))
             {
-                Install_Anim.Call_Update();
-                Download();
-                Launch();
+                Console.WriteLine($"DLL already exists, Updating it.");
+                Update();
             }
             else
             {
-                Console.WriteLine($"Files don't Exist, Installing now");
                 Download();
+            }
+        }
+        static void Download()
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                Install_Anim.Call_StartInstAnim();
+
+                try
+                {
+                    ManualResetEvent downloadCompleted = new ManualResetEvent(false);
+                    webClient.DownloadFileCompleted += (sender, e) =>
+                    {
+                        if (e.Error == null) { Console.WriteLine("File downloaded successfully."); }
+                        else { Console.WriteLine($"Download failed: {e.Error.Message}"); }
+                        downloadCompleted.Set();
+                    };
+
+                    webClient.DownloadFileAsync(new Uri("https://github.com/YimMenu/YimMenu/releases/download/nightly/YimMenu.dll"), DLLPath);
+                    downloadCompleted.WaitOne();
+                    Launch();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Download failed: {ex.Message}");
+                }
+            }
+        }
+
+        static void Update()
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                Install_Anim.Call_Update();
+
+                try
+                {
+                    ManualResetEvent downloadCompleted = new ManualResetEvent(false);
+                    webClient.DownloadFileCompleted += (sender, e) =>
+                    {
+                        if (e.Error == null) { Console.WriteLine("File updated successfully."); }
+                        else { Console.WriteLine($"Update failed: {e.Error.Message}"); }
+                        downloadCompleted.Set();
+                    };
+
+                    webClient.DownloadFileAsync(new Uri("https://github.com/YimMenu/YimMenu/releases/download/nightly/YimMenu.dll"), DLLPath);
+                    downloadCompleted.WaitOne();
+                    Launch();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Update failed: {ex.Message}");
+                }
             }
         }
         static void Launch()
         {
             Install_Anim.Call_LaunchGame();
+
             try
             {
                 Process.Start(CustLauncherPath);
                 Task.Delay(5000).Wait();
+
                 Install_Anim.Call_Success();
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
