@@ -75,6 +75,20 @@ _/      _/  _/    _/    _/      _/      _/    _/_/_/  _/    _/    _/_/_/
 Updating the DLL to the Latest Version");
             Task.Delay(2000).Wait();
         }
+        public static void Call_Inject()
+        {
+            Console.Clear();
+            Console.WriteLine(@"
+
+_/      _/  _/                      _/      _/                               
+ _/  _/        _/_/_/  _/_/        _/_/  _/_/    _/_/    _/_/_/    _/    _/  
+  _/      _/  _/    _/    _/      _/  _/  _/  _/_/_/_/  _/    _/  _/    _/   
+ _/      _/  _/    _/    _/      _/      _/  _/        _/    _/  _/    _/    
+_/      _/  _/    _/    _/      _/      _/    _/_/_/  _/    _/    _/_/_/     
+
+Injecting...");
+            Task.Delay(2000).Wait();
+        }
         public static void Call_Success()
         {
             Console.Clear();
@@ -86,7 +100,21 @@ _/      _/  _/                      _/      _/
  _/      _/  _/    _/    _/      _/      _/  _/        _/    _/  _/    _/    
 _/      _/  _/    _/    _/      _/      _/    _/_/_/  _/    _/    _/_/_/     
 
-We're done! Inject and enjoy");
+YimMenu Initiated!");
+            Task.Delay(2000).Wait();
+        }
+        public static void Call_Fail()
+        {
+            Console.Clear();
+            Console.WriteLine(@"
+
+_/      _/  _/                      _/      _/                               
+ _/  _/        _/_/_/  _/_/        _/_/  _/_/    _/_/    _/_/_/    _/    _/  
+  _/      _/  _/    _/    _/      _/  _/  _/  _/_/_/_/  _/    _/  _/    _/   
+ _/      _/  _/    _/    _/      _/      _/  _/        _/    _/  _/    _/    
+_/      _/  _/    _/    _/      _/      _/    _/_/_/  _/    _/    _/_/_/     
+
+Make sure you have GTA5 Open | You have the autoinjecter running already.");
             Task.Delay(2000).Wait();
         }
     }

@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net4.8.1</TargetFramework>
+    <ImplicitUsings>false</ImplicitUsings>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <BaseOutputPath>C:\Users\Acer Cloudbook 14\Desktop\Sex\GTA5\Yimupdater</BaseOutputPath>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="SRC\etc\Animation.cs~RF27bfe74.TMP" />
+    <None Remove="SRC\etc\InstallationProcess.cs~RF2a20b4c.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+
+</Project>
