@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -228,96 +229,24 @@ namespace YimUpdater.SRC.etc
         {
             Install_Anim.Call_Inject();
 
-            // Define a unique name for the mutex
-            string mutexName = "YimMenuAutoInjectMutex";
-
-            // Attempt to acquire the mutex
-            bool mutexAcquired = false;
-            Mutex mutex = new Mutex(true, mutexName, out mutexAcquired);
-
-            try
-            {
-                if (!mutexAcquired)
-                {
-                    // Another instance is already running, kill the existing process and restart
-                    KillAndRestartProcess("YimMenuAutoInject");
-                }
-                else
-                {
-                    Process[] existingProcesses = Process.GetProcessesByName("YimMenuAutoInject");
-
-                    if (existingProcesses.Length > 0)
-                    {
-                        // Process is already running, kill the existing process and restart
-                        KillAndRestartProcess("YimMenuAutoInject");
-                    }
-                    else
-                    {
-                        if (GTA5Open)
-                        {
-                            ProcessStartInfo startInfo = new ProcessStartInfo(InjectorPath)
-                            {
-                                UseShellExecute = true,
-                                CreateNoWindow = false,
-                                RedirectStandardOutput = true,
-                                RedirectStandardError = true
-                            };
-
-                            using (Process process = new Process { StartInfo = startInfo })
-                            {
-                                Thread.Sleep(5000);
-                                process.Start();
-                                process.WaitForExit();
-                                Thread.Sleep(2000);
-                                process.Kill();
-                                int exitCode = process.ExitCode;
-
-                                if (exitCode == 0)
-                                {
-                                    Thread.Sleep(5000);
-                                    Install_Anim.Call_Success();
-                                }
-                                else
-                                {
-                                    Thread.Sleep(5000);
-                                    Install_Anim.Call_Fail();
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Thread.Sleep(5000);
-                            Install_Anim.Call_Fail();
-                        }
-                    }
-                }
-            }
-            finally
-            {
-                // Release the mutex when finished
-                if (mutexAcquired)
-                {
-                    mutex.ReleaseMutex();
-                    mutex.Dispose();
-                }
-            }
-
-        }
-        private static void KillAndRestartProcess(string processName)
-        {
-            Process[] processes = Process.GetProcessesByName(processName);
-
-            foreach (var process in processes)
+            if (!GTA5Open)
             {
                 try
                 {
-                    process.Kill();
-                    process.WaitForExit();
+                    Process.Start(Injector);
+                    Thread.Sleep(5000);
+                    Install_Anim.Call_Success();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    Console.WriteLine($"Error killing process {process.ProcessName}: {ex.Message}");
+                    Thread.Sleep(5000);
+                    Install_Anim.Call_Fail();
                 }
+            }
+            else
+            {
+                Thread.Sleep(5000);
+                Install_Anim.Call_Fail();
             }
         }
     }
