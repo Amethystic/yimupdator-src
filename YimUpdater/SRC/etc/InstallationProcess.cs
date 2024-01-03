@@ -18,18 +18,17 @@ namespace YimUpdater.SRC.etc
         public static string DLL = "YimMenu.dll";
         public static string ZIP = "YimMenu.zip";
         public static string Launcher = "gtalauncher.exe";
-        public static string Injector = "YimMenuAutoInjector.exe";
-        public static string InjectorLaucnher = "IIL.exe";
-        public static string Documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        public static string Injector = "YimMenuInjector.exe";
+        public static string Documents = Environment.CurrentDirectory;
 
         public static string folderPath = Path.Combine(Documents, yimpath);
         public static string InjectorPath = Path.Combine(Documents, yimpath, Injector);
         public static string ZIPPath = Path.Combine(Documents, ZIP);
         public static string CustLauncherPath = Path.Combine(Documents, yimpath, Launcher);
-        public static string ILLauncherPath = Path.Combine(Documents, yimpath, InjectorLaucnher);
         public static string DLLPath = Path.Combine(Documents, yimpath, DLL);
 
         public static bool GTA5Open = false;
+        private static bool PD;
 
         public static void InstallStart()
         {
@@ -64,7 +63,7 @@ namespace YimUpdater.SRC.etc
 
             if (File.Exists(DLLPath))
             {
-                Console.WriteLine($"DLL already exists, Updating it.");
+                Console.WriteLine($"Files already exists, Updating it.");
                 Update();
             }
             else
@@ -82,7 +81,7 @@ namespace YimUpdater.SRC.etc
                     ManualResetEvent downloadCompleted = new ManualResetEvent(false);
                     webClient.DownloadFileCompleted += (sender, e) =>
                     {
-                        if (e.Error == null) { Console.WriteLine("YimMenu | File downloaded successfully."); }
+                        if (e.Error == null) { Console.WriteLine("File downloaded successfully."); }
                         else { Console.WriteLine($"Download failed: {e.Error.Message}"); }
                         downloadCompleted.Set();
                     };
@@ -100,12 +99,12 @@ namespace YimUpdater.SRC.etc
                     ManualResetEvent downloadCompleted = new ManualResetEvent(false);
                     webClient.DownloadFileCompleted += (sender, e) =>
                     {
-                        if (e.Error == null) { Console.WriteLine("YimMenuAutoInjector | File downloaded successfully."); }
+                        if (e.Error == null) { Console.WriteLine("File downloaded successfully."); }
                         else { Console.WriteLine($"Download failed: {e.Error.Message}"); }
                         downloadCompleted.Set();
                     };
 
-                    webClient.DownloadFileAsync(new Uri("https://github.com/Amethystic/yimupdator-src/releases/download/etc/YimMenuAutoInjector.exe"), InjectorPath);
+                    webClient.DownloadFileAsync(new Uri("https://github.com/Amethystic/yimupdator-src/releases/download/etc/YimMenuInjector.exe"), InjectorPath);
                     downloadCompleted.WaitOne();
                 }
                 catch (Exception ex)
@@ -118,7 +117,7 @@ namespace YimUpdater.SRC.etc
                     ManualResetEvent downloadCompleted = new ManualResetEvent(false);
                     webClient.DownloadFileCompleted += (sender, e) =>
                     {
-                        if (e.Error == null) { Console.WriteLine("gtalauncher | File downloaded successfully."); }
+                        if (e.Error == null) { Console.WriteLine("File downloaded successfully."); }
                         else { Console.WriteLine($"Download failed: {e.Error.Message}"); }
                         downloadCompleted.Set();
                     };
@@ -126,24 +125,6 @@ namespace YimUpdater.SRC.etc
                     webClient.DownloadFileAsync(new Uri("https://github.com/Amethystic/yimupdator-src/releases/download/etc/gtalauncher.exe"), CustLauncherPath);
                     downloadCompleted.WaitOne();
 
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Download failed: {ex.Message}");
-                }
-
-                try
-                {
-                    ManualResetEvent downloadCompleted = new ManualResetEvent(false);
-                    webClient.DownloadFileCompleted += (sender, e) =>
-                    {
-                        if (e.Error == null) { Console.WriteLine("ILL (Inject Launcher since C# gay | File downloaded successfully."); }
-                        else { Console.WriteLine($"Download failed: {e.Error.Message}"); }
-                        downloadCompleted.Set();
-                    };
-
-                    webClient.DownloadFileAsync(new Uri("https://github.com/Amethystic/yimupdator-src/releases/download/etc/IIL.exe"), ILLauncherPath);
-                    downloadCompleted.WaitOne();
                 }
                 catch (Exception ex)
                 {
@@ -164,7 +145,7 @@ namespace YimUpdater.SRC.etc
                     ManualResetEvent downloadCompleted = new ManualResetEvent(false);
                     webClient.DownloadFileCompleted += (sender, e) =>
                     {
-                        if (e.Error == null) { Console.WriteLine("YimMenu | File downloaded successfully."); }
+                        if (e.Error == null) { Console.WriteLine("File downloaded successfully."); }
                         else { Console.WriteLine($"Download failed: {e.Error.Message}"); }
                         downloadCompleted.Set();
                     };
@@ -182,12 +163,12 @@ namespace YimUpdater.SRC.etc
                     ManualResetEvent downloadCompleted = new ManualResetEvent(false);
                     webClient.DownloadFileCompleted += (sender, e) =>
                     {
-                        if (e.Error == null) { Console.WriteLine("YimMenuAutoInjector | File downloaded successfully."); }
+                        if (e.Error == null) { Console.WriteLine("File downloaded successfully."); }
                         else { Console.WriteLine($"Download failed: {e.Error.Message}"); }
                         downloadCompleted.Set();
                     };
 
-                    webClient.DownloadFileAsync(new Uri("https://github.com/Amethystic/yimupdator-src/releases/download/etc/YimMenuAutoInjector.exe"), InjectorPath);
+                    webClient.DownloadFileAsync(new Uri("https://github.com/Amethystic/yimupdator-src/releases/download/etc/YimMenuInjector.exe"), InjectorPath);
                     downloadCompleted.WaitOne();
 
                 }
@@ -201,7 +182,7 @@ namespace YimUpdater.SRC.etc
                     ManualResetEvent downloadCompleted = new ManualResetEvent(false);
                     webClient.DownloadFileCompleted += (sender, e) =>
                     {
-                        if (e.Error == null) { Console.WriteLine("gtalauncher | File downloaded successfully."); }
+                        if (e.Error == null) { Console.WriteLine("File downloaded successfully."); }
                         else { Console.WriteLine($"Download failed: {e.Error.Message}"); }
                         downloadCompleted.Set();
                     };
@@ -209,24 +190,6 @@ namespace YimUpdater.SRC.etc
                     webClient.DownloadFileAsync(new Uri("https://github.com/Amethystic/yimupdator-src/releases/download/etc/gtalauncher.exe"), CustLauncherPath);
                     downloadCompleted.WaitOne();
 
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Download failed: {ex.Message}");
-                }
-
-                try
-                {
-                    ManualResetEvent downloadCompleted = new ManualResetEvent(false);
-                    webClient.DownloadFileCompleted += (sender, e) =>
-                    {
-                        if (e.Error == null) { Console.WriteLine("ILL (Inject Launcher since C# gay | File downloaded successfully."); }
-                        else { Console.WriteLine($"Download failed: {e.Error.Message}"); }
-                        downloadCompleted.Set();
-                    };
-
-                    webClient.DownloadFileAsync(new Uri("https://github.com/Amethystic/yimupdator-src/releases/download/etc/IIL.exe"), ILLauncherPath);
-                    downloadCompleted.WaitOne();
                 }
                 catch (Exception ex)
                 {
@@ -275,6 +238,7 @@ namespace YimUpdater.SRC.etc
             Console.WriteLine("Waiting for GTA 5 to start...");
 
             while (Process.GetProcessesByName("GTA5").Length == 0) { Thread.Sleep(1000); }
+
             Console.WriteLine("GTA 5 has started!");
             Thread.Sleep(10000);
 
@@ -291,50 +255,29 @@ namespace YimUpdater.SRC.etc
 
         static void Inject()
         {
-            string yimpath = "YimMenu";
-            string Injector = "IIL.exe";
-            string Documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string fullPath = Path.Combine(Documents, yimpath, Injector);
 
             Install_Anim.Call_Inject();
+            PD = false;
+
             try
             {
-                if (GTA5Open)
+                if (PD == true)
                 {
-                    ProcessStartInfo startInfo = new ProcessStartInfo(fullPath)
-                    {
-                        FileName = fullPath,
-                        UseShellExecute = true,  // Use the shell to execute the process
-                        CreateNoWindow = false   // Show the window of the new process
-                    };
+                    while (Process.GetProcessesByName(Injector).Length == 0) { Thread.Sleep(1000); }
 
-                    using (Process process = Process.Start(startInfo))
-                    {
-                        process.WaitForExit();
-                        int exitCode = process.ExitCode;
-
-                        if (exitCode == 0)
-                        {
-                            Thread.Sleep(5000);
-                            Install_Anim.Call_Success();
-                        }
-                        else
-                        {
-                            Thread.Sleep(5000);
-                            Install_Anim.Call_Fail();
-                        }
-                    }
+                    PD = true;
+                    Thread.Sleep(5000);
                 }
                 else
                 {
                     Thread.Sleep(5000);
-                    Install_Anim.Call_Fail();
+                    Install_Anim.Call_Success();
                 }
             }
             finally
             {
-                Thread.Sleep(5000);
                 Install_Anim.Call_Success();
+                Thread.Sleep(5000);
             }
         }
     }

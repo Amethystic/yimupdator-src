@@ -86,7 +86,8 @@ _/      _/  _/                      _/      _/
  _/      _/  _/    _/    _/      _/      _/  _/        _/    _/  _/    _/    
 _/      _/  _/    _/    _/      _/      _/    _/_/_/  _/    _/    _/_/_/     
 
-Injecting...");
+You may now launch the launchpad...");
+            Console.WriteLine($"If you cant find the launchpad: {InstallationProcess.InjectorPath}");
             Task.Delay(5000).Wait();
         }
         public static void Call_Success()
