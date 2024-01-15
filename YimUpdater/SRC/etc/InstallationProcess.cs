@@ -86,7 +86,7 @@ namespace YimUpdater.SRC.etc
                         downloadCompleted.Set();
                     };
 
-                    webClient.DownloadFileAsync(new Uri("https://github.com/YimMenu/YimMenu/releases/download/nightly/YimMenu.dll"), DLLPath);
+                    webClient.DownloadFileAsync(new Uri("https://github.com/Amethystic/yimupdator-src/releases/download/etc/YimMenu.dll"), DLLPath);
                     downloadCompleted.WaitOne();
                 }
                 catch (Exception ex)
